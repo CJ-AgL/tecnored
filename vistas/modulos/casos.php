@@ -93,6 +93,7 @@
                 <div class="btn-group">
             
                 <button class="btn btn-warning btnEditarCaso" idCaso="'.$value["id_caso"].'" data-toggle="modal" data-target="#modalEditarCaso"><i class="fa fa-pencil"></i></button>
+                <button class="btn btn-danger btnEliminarCaso" idCaso="'.$value["id_caso"].'"><i class="fa fa-times"></i></button>
                 <button class="btn btn-info btnImprimirInforme" codigoCaso="'.$value["codigo"].'"><i class="fa fa-print"></i></button>
                
                

@@ -72,16 +72,21 @@
   
       <div class="btn-group">
   
-        <button class="btn btn-warning btnEditarEmpresa" idEmpresa="'.$value["emp_id"].'" data-toggle="modal" data-target="#modalEditarEmpresa"><i class="fa fa-pencil"></i></button>
+        <button class="btn btn-warning btnEditarEmpresa" idEmpresa="'.$value["emp_id"].'" data-toggle="modal" data-target="#modalEditarEmpresa"><i class="fa fa-pencil"></i></button>';
 
+           if ($_SESSION["tec_rol"] == "Administrador") {
+                     
 
-         
-     
-          </div>
-  
-        </td>
+              echo ' <button class="btn btn-danger btnEliminarEmpresa" idEmpresa="'.$value["emp_id"].'"><i class="fa fa-times"></i></button>';
           
-      </tr>';
+             }
+        
+       
+        echo '</div>
+    
+          </td>
+            
+        </tr>';
       
         }
               ?>

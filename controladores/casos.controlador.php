@@ -101,62 +101,68 @@ class ControladorCasos{
 
     static public function ctrEditarCaso(){
 
-        if(isset($_POST["editarDescripcions"])){
 
-           if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarDescripcions"])){
+    if(isset($_POST["editarDescripcions"])){
 
-                $tabla = "caso";
+        if(preg_match('/^[a-zA-ZñÑáéíóúÁÉÍÓÚ. ]+$/', $_POST["editarDescripcions"])){
 
-                $datos = array("codigo"=>$_POST["editarCodigo"],
-                                "descripcion"=>$_POST["editarDescripcions"],
-                                "id_empresa"=>$_POST["editarEmpresa"],
-                                "id_tecnico"=>$_POST["editarTecnico"]);
+            $tabla = "caso";
 
-                $respuesta = ModeloCasos::mdlEditarCaso($tabla, $datos);
+            $datos = array("codigo"=>$_POST["editarCodigo"],
+                            "descripcion"=>$_POST["editarDescripcions"],
+                            "id_empresa"=>$_POST["editarEmpresa"],
+                            "id_tecnico"=>$_POST["editarTecnico"]);
 
-                if($respuesta == "ok"){
+            $respuesta = ModeloCasos::mdlEditarCaso($tabla, $datos);
 
-                    echo'<script>
+            if($respuesta == "ok"){
+
+
+            echo '<script>
 
                     swal({
-                          type: "success",
-                          title: "El caso ha sido cambiado correctamente",
-                          showConfirmButton: true,
-                          confirmButtonText: "Cerrar",
-                          closeOnConfirm: false
-                          }).then((result) => {
-                                    if (result.value) {
 
-                                    window.location = "casos";
+                            type: "success",
+                            title: "El caso ha sido actualizada correctamente", 
+                            showConfirmButton: true,
+                            confirmButtonText: "Cerrar",
+                            closeOnConfirm: false
 
+                            }).then((result)=>{
+
+                                    if(result.value){
+
+                                        window.location = "casos";
                                     }
+
                                 })
-
-                    </script>';
-
-                }
-
-            }else{
-
-                echo'<script>
-
-                    swal({
-                          type: "error",
-                          title: "¡El cliente no puede ir vacío o llevar caracteres especiales!",
-                          showConfirmButton: true,
-                          confirmButtonText: "Cerrar"
-                          closeOnConfirm: false
-                          }).then((result) => {
-                            if (result.value) {
-
-                            window.location = "casos";
-
-                            }
-                        })
 
                 </script>';
 
+            }
 
+        }else{
+
+            echo '<script>
+
+                    swal({
+
+                            type: "error",
+                            title: "!El caso no puede ir vacía o llevar caracteres especiales!", 
+                            showConfirmButton: true,
+                            confirmButtonText: "Cerrar",
+                            closeOnConfirm: false
+
+                            }).then((result)=>{
+
+                                    if(result.value){
+
+                                        window.location = "casos";
+                                    }
+
+                                })
+
+                </script>';
 
             }
 
@@ -206,6 +212,7 @@ class ControladorCasos{
         }
 
     }
-  }
+
+}
 
  

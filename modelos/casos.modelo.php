@@ -70,40 +70,39 @@ static public function mdlIngresarCaso($tabla, $datos){
   
 
 /*=========================================
-           EDITAR EMPRESA
+           EDITAR CASO
   ===========================================*/
 
-  static public function mdlEditarCaso($tabla, $datos){
+static public function mdlEditarCaso($tabla, $datos){
 
-    $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET codigo = :codigo, descripcion = :descripcion, id_empresa = :id_empresa, id_tecnico = :id_tecnico 
-                                            WHERE id_caso = :id_caso");
+      $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET  descripcion = :descripcion, id_empresa = :id_empresa, id_tecnico = :id_tecnico 
+        WHERE codigo = :codigo");
 
-    $stmt->bindParam(":codigo", $datos["codigo"], PDO::PARAM_STR);
-    $stmt->bindParam(":descripcion", $datos["descripcion"], PDO::PARAM_STR);
-    $stmt->bindParam(":id_empresa", $datos["id_empresa"], PDO::PARAM_STR);
-    $stmt->bindParam(":id_tecnico", $datos["id_tecnico"], PDO::PARAM_STR);
-    $stmt->bindParam(":id_caso", $datos["id_caso"], PDO::PARAM_STR);
+         $stmt->bindParam(":codigo", $datos["codigo"], PDO::PARAM_STR);
+         $stmt->bindParam(":descripcion", $datos["descripcion"], PDO::PARAM_STR);
+         $stmt->bindParam(":id_empresa", $datos["id_empresa"], PDO::PARAM_STR);
+         $stmt->bindParam(":id_tecnico", $datos["id_tecnico"], PDO::PARAM_STR);
+         
 
-    if($stmt->execute()){
+      if($stmt -> execute()){
 
-            return "ok";
+         return "ok";
 
-         }else{
+      }else{
 
-            return "error";
-         }
-
-
+         return "error";
+      }
+      
          $stmt->close();
 
          $stmt = null;
-   
 
-  }
+   }
+
 
 
   /*=============================================
-  ELIMINAR EMPRESA
+  ELIMINAR CASO
   =============================================*/
 
   static public function mdlEliminarCaso($tabla, $datos){
