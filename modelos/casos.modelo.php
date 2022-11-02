@@ -75,13 +75,14 @@ static public function mdlIngresarCaso($tabla, $datos){
 
   static public function mdlEditarCaso($tabla, $datos){
 
-    $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET codigo = :codigo, descripcion = :descripcion, id_empresa = :id_empresa, id_tecnico = :id_tecnico WHERE id_caso = :id_caso");
+    $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET codigo = :codigo, descripcion = :descripcion, id_empresa = :id_empresa, id_tecnico = :id_tecnico 
+                                            WHERE id_caso = :id_caso");
 
     $stmt->bindParam(":codigo", $datos["codigo"], PDO::PARAM_STR);
     $stmt->bindParam(":descripcion", $datos["descripcion"], PDO::PARAM_STR);
-    $stmt->bindParam(":id_caso", $datos["id_caso"], PDO::PARAM_STR);
     $stmt->bindParam(":id_empresa", $datos["id_empresa"], PDO::PARAM_STR);
     $stmt->bindParam(":id_tecnico", $datos["id_tecnico"], PDO::PARAM_STR);
+    $stmt->bindParam(":id_caso", $datos["id_caso"], PDO::PARAM_STR);
 
     if($stmt->execute()){
 

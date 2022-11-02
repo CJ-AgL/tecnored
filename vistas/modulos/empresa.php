@@ -72,18 +72,12 @@
   
       <div class="btn-group">
   
-        <button class="btn btn-warning btnEditarEmpresa" idEmpresa="'.$value["emp_id"].'" data-toggle="modal" data-target="#modalEditarEmpresa"><i class="fa fa-pencil"></i></button>';
+        <button class="btn btn-warning btnEditarEmpresa" idEmpresa="'.$value["emp_id"].'" data-toggle="modal" data-target="#modalEditarEmpresa"><i class="fa fa-pencil"></i></button>
 
 
-         if ($_SESSION["tec_rol"] == "Administrador") {
-                   
-
-            echo ' <button class="btn btn-danger btnEliminarEmpresa" idEmpresa="'.$value["emp_id"].'"><i class="fa fa-times"></i></button>';
-        
-           }
-      
+         
      
-      echo '</div>
+          </div>
   
         </td>
           
@@ -159,7 +153,7 @@
   ===========================================-->
       <div class="modal-footer">
 
-        <button type="button" class="btn btn-default  pull-left" data-dismiss="modal">Salir</button>
+        <a href="empresas" class="btn btn-default pull-left">Cancelar</a>
 
         <button type="submit" class="btn btn-primary">Guardar empresa</button>
 
@@ -235,7 +229,7 @@
   ===========================================-->
       <div class="modal-footer">
   
-        <button type="button" class="btn btn-default  pull-left" data-dismiss="modal">Salir</button>
+        <a href="empresas" class="btn btn-default pull-left">Cancelar</a>
   
         <button type="submit" class="btn btn-dark">Guardar Cambios</button>
   

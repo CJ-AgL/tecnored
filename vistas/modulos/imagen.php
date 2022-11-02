@@ -46,6 +46,7 @@
                 <th style="width: 10px">#</th>
                 <th>Estado</th>
                 <th>Caso</th>
+                <th>Imagen</th>
                 <th style="width: 10px">Acciones</th>
 
               </tr>
@@ -82,13 +83,16 @@
                     $respuestaCaso = ControladorCasos::ctrMostrarCasos($itemCaso, $valorCaso);
 
                      echo '<td>'.$respuestaCaso["descripcion"].'</td>
+
+                    <td><img src="'.$value["img_imagen"].'" class="img-thumbnail" width="40px"></td>
                       
                       <td>
                     
                        <div class="btn-group">
                     
 
-                                   <button class="btn btn-danger btnEliminarImagen" idImagen="'.$value["img_id"].'"><i class="fa fa-times"></i></button>
+                        <button class="btn btn-danger btnEliminarImagen" idImagen="'.$value["img_id"].'" imagenCaso="'.$value["img_imagen"].'" 
+                        caso="'.$value["img_caso"].'"><i class="fa fa-times"></i></button>
                     
                  
                   </div>
@@ -122,7 +126,6 @@
 <div id="modalAgregarImagen" class="modal fade" role="dialog">
 
   <div class="modal-dialog">
-
     
     <div class="modal-content">
 
@@ -143,44 +146,11 @@
 <!-- =========================================
              CUERPO DEL MODAL
   ===========================================-->\
-      <div class="modal-body">
+     <div class="modal-body">
       
-      <div class=" box-body">
-         
-           <!-- ENTRADA PARA EL CASO -->
-          
-           <div class="form-group"> 
+      <div class=" box-body">  
 
-              <div class="input-group"> 
-
-                  <span class="input-group-addon"><i class="fa fa-suitcase"></i></span>
-
-                  <select class="form-control input-lg" name="nuevoCasos">
-                    
-                      <option value="">Seleccionar Caso</option>
-
-                      <?php 
-  
-                      $item = null;
-                      $valor = null;
-  
-                      $casos = ControladorCasos::ctrMostrarCasos($item, $valor);
-  
-                      foreach ($casos as $key => $value) {
-                        
-                        echo '<option value="'.$value["id_caso"].'">'.$value["descripcion"].'</option>';
-  
-                      }
-  
-                      ?>
-
-                  </select>
-
-              </div>
-
-          </div>
-
-           <!-- ENTRADA PARA EL ESTADO -->
+       <!-- ENTRADA PARA EL ESTADO -->
           
            <div class="form-group"> 
 
@@ -212,36 +182,89 @@
               </div>
 
           </div>
+              <!-- ENTRADA PARA EL CASO -->
+          
+           <div class="form-group"> 
 
+              <div class="input-group"> 
 
-           <!-- ENTRADA PARA SUBIR IMAGEN -->
+                  <span class="input-group-addon"><i class="fa fa-suitcase"></i></span>
+
+                  <select class="form-control input-lg" name="nuevoCasos">
+                    
+                      <option value="">Seleccionar Caso</option>
+
+                      <?php 
+  
+                      $item = null;
+                      $valor = null;
+  
+                      $casos = ControladorCasos::ctrMostrarCasos($item, $valor);
+  
+                      foreach ($casos as $key => $value) {
+                        
+                        echo '<option value="'.$value["id_caso"].'">'.$value["descripcion"].'</option>';
+  
+                      }
+  
+                      ?>
+
+                  </select>
+
+              </div>
+
+          </div>
+  
+
+            <!-- ENTRADA PARA SUBIR IMAGEN -->
 
              <div class="form-group">
               
-              Selecciones la imagen a subir:
-              <input type="file" name="nuevaImagen">
+              <div class="panel">SUBIR FOTO</div>      
+            
+              <input type="file" class="nuevaFoto" name="nuevaFoto" required>
+
+              <p class="help-block">Peso máximo de la foto 2 MB</p>
+
+              <img src="vistas/img/imgCaso/default/default.png" class="img-thumbnail previsualizar" width="100px">
+
 
             </div>
+  
       </div>  
-
-
-</div>
+  
+  </div>
 <!-- =========================================
              PIE DEL MODAL
   ===========================================-->
       <div class="modal-footer">
 
-        <button type="button" class="btn btn-default  pull-left" data-dismiss="modal">Salir</button>
+        <a href="imagen" class="btn btn-default pull-left">Cancelar</a>
 
         <button type="submit" name="submit" class="btn btn-default">Guardar Imagen</button>
 
       </div>
 
+        <?php 
+
+
+        $cargar = new ControladorImagen();
+        $cargar -> ctrCargarImagen();
+
+        ?>
+
       </form>
 
     </div>
 
-   
   </div>
 
 </div>  
+
+ <?php 
+
+
+  $eliminarImagen = new ControladorImagen();
+  $eliminarImagen -> ctrEliminarImagen();
+
+  ?>

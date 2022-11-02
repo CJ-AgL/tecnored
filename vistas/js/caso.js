@@ -63,10 +63,9 @@ $(document).on("click", ".btnEditarCaso", function(){
 
             })
 
-
-
+            $("#editarCodigo").val(respuesta["codigo"]);
 			$("#editarDescripcions").val(respuesta["descripcion"]);
-			$("#editarCodigo").val(respuesta["codigo"]);
+			
 			
 		}
 

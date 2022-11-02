@@ -99,8 +99,7 @@ if($_SESSION["tec_rol"] == "Tecnico" ){
                  <button class="btn btn-warning btnEditarTecnico" idTecnico="'.$value["tec_id"].'" data-toggle="modal" data-target="#modalEditarTecnico">
                  <i class="fa fa-pencil"></i></button>
 
-                 <button class="btn btn-danger btnEliminarTecnico" idTecnico="'.$value["tec_id"].'"><i class="fa fa-times"></i></button>
-  
+                
      
       </div>
   
@@ -259,8 +258,7 @@ if($_SESSION["tec_rol"] == "Tecnico" ){
   ===========================================-->
       <div class="modal-footer">
 
-        <button type="button" class="btn btn-default  pull-left" data-dismiss="modal">Salir</button>
-
+        <a href="tecnico" class="btn btn-default pull-left">Cancelar</a>
         <button type="submit" class="btn btn-dark">Guardar cambios</button>
 
       </div>
@@ -415,7 +413,7 @@ if($_SESSION["tec_rol"] == "Tecnico" ){
   ===========================================-->
       <div class="modal-footer">
 
-        <button type="button" class="btn btn-default  pull-left" data-dismiss="modal">Salir</button>
+        <a href="tecnico" class="btn btn-default pull-left">Cancelar</a>
 
         <button type="submit" class="btn btn-dark">Guardar cambios</button>
 

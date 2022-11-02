@@ -93,7 +93,6 @@
                 <div class="btn-group">
             
                 <button class="btn btn-warning btnEditarCaso" idCaso="'.$value["id_caso"].'" data-toggle="modal" data-target="#modalEditarCaso"><i class="fa fa-pencil"></i></button>
-                <button class="btn btn-danger btnEliminarCaso" idCaso="'.$value["id_caso"].'"><i class="fa fa-times"></i></button>
                 <button class="btn btn-info btnImprimirInforme" codigoCaso="'.$value["codigo"].'"><i class="fa fa-print"></i></button>
                
                
@@ -282,7 +281,7 @@
   ===========================================-->
       <div class="modal-footer">
   
-        <button type="button" class="btn btn-default  pull-left" data-dismiss="modal">Salir</button>
+        <a href="casos" class="btn btn-default pull-left">Cancelar</a>
   
         <button type="submit" class="btn btn-dark">Guardar Caso</button>
   
@@ -358,7 +357,7 @@
   
                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
   
-                <input type="text" class="form-control input-lg" id="editarDescripcions" name="editarDescripcions" value="" required>
+                <input type="text" class="form-control input-lg" id="editarDescripcions" name="editarDescripcions"required>
                
             </div>
   
@@ -400,11 +399,11 @@
                       
                   </select>
   
-      </div>
+             </div>
   
-   </div>
+         </div>
   
-  </div>  
+      </div>  
   
   </div>
 
@@ -413,7 +412,7 @@
   ===========================================-->
     <div class="modal-footer">
   
-      <button type="button" class="btn btn-default  pull-left" data-dismiss="modal">Salir</button>
+      <a href="casos" class="btn btn-default pull-left">Cancelar</a>
   
       <button type="submit" class="btn btn-dark">Guardar cambios</button>
   

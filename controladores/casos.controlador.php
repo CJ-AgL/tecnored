@@ -99,7 +99,6 @@ class ControladorCasos{
     EDITAR CASO
     =============================================*/
 
-
     static public function ctrEditarCaso(){
 
         if(isset($_POST["editarDescripcions"])){
@@ -108,9 +107,10 @@ class ControladorCasos{
 
                 $tabla = "caso";
 
-                $datos = array("id_empresa"=>$_POST["editarEmpresa"],
-                               "id_tecnico"=>$_POST["editarTecnico"],
-                                "descripcion"=>$_POST["editarDescripcions"]);
+                $datos = array("codigo"=>$_POST["editarCodigo"],
+                                "descripcion"=>$_POST["editarDescripcions"],
+                                "id_empresa"=>$_POST["editarEmpresa"],
+                                "id_tecnico"=>$_POST["editarTecnico"]);
 
                 $respuesta = ModeloCasos::mdlEditarCaso($tabla, $datos);
 
@@ -149,7 +149,7 @@ class ControladorCasos{
                           }).then((result) => {
                             if (result.value) {
 
-                            window.location = "cosos";
+                            window.location = "casos";
 
                             }
                         })
